@@ -5,8 +5,8 @@ import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <h1>React To-Do App</h1>
+    <div className="App neon-form">
+      <h1>To-Do Items</h1>
       <TaskInput />
       <TaskList />
     </div>

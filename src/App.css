@@ -1,53 +1,154 @@
-*{
-  background-color: rgb(235, 202, 207);
+* {
+  background-color: rgb(23, 23, 23);
+  color: white;
 }
+
 .App {
-    text-align: center;
+  text-align: center;
+}
+
+form {
+  margin: 20px 0;
+}
+
+.neon-form {
+  border: 2px solid;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 50px;
+  animation: neon-border 5s linear infinite;
+}
+
+@keyframes neon-border {
+  0% {
+    border-color: #ff00ff;
+    box-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 15px #ff00ff, 0 0 20px #ff00ff, 0 0 25px #ff00ff, 0 0 30px #ff00ff, 0 0 35px #ff00ff;
   }
-  
-  form {
-    margin: 20px 0;
+
+  25% {
+    border-color: #00ffff;
+    box-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 15px #00ffff, 0 0 20px #00ffff, 0 0 25px #00ffff, 0 0 30px #00ffff, 0 0 35px #00ffff;
   }
-  
-  input[type="text"] {
-    padding: 10px;
-    font-size: 16px;
-    width: 300px;
+
+  50% {
+    border-color: #00ff00;
+    box-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00, 0 0 20px #00ff00, 0 0 25px #00ff00, 0 0 30px #00ff00, 0 0 35px #00ff00;
   }
-  
-  button {
-    padding: 10px 20px;
-    margin-left: 10px;
-    font-size: 16px;
-    cursor: pointer;
+
+  75% {
+    border-color: #ffff00;
+    box-shadow: 0 0 5px #ffff00, 0 0 10px #ffff00, 0 0 15px #ffff00, 0 0 20px #ffff00, 0 0 25px #ffff00, 0 0 30px #ffff00, 0 0 35px #ffff00;
   }
-  
-  ul {
-    list-style: none;
-    padding: 0;
+
+  100% {
+    border-color: #ff0000;
+    box-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000, 0 0 15px #ff0000, 0 0 20px #ff0000, 0 0 25px #ff0000, 0 0 30px #ff0000, 0 0 35px #ff0000;
   }
-  
-  li {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 10px 0;
-  }
-  
-  li input[type="checkbox"] {
-    margin-right: 10px;
-  }
-  
-  li input[type="text"] {
-    padding: 5px;
-    font-size: 16px;
-  }
-  
-  li span {
-    margin-right: 10px;
-  }
-  
-  li button {
-    margin-left: 5px;
-  }
-  
+}
+
+.neon-form {
+  border: 2px solid;
+  padding: 20px;
+  border-radius: 10px;
+  animation: neon-border 5s linear infinite;
+}
+
+
+input[type="text"] {
+  padding: 10px;
+  font-size: 16px;
+  width: 300px;
+}
+
+button {
+  padding: 10px 20px;
+  margin-left: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin: 10px 0;
+}
+
+li input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+li input[type="text"] {
+  padding: 5px;
+  font-size: 16px;
+}
+
+li span {
+  margin-right: 10px;
+}
+
+li button {
+  margin-left: 5px;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px auto;
+  padding: 8px;
+  border-radius: 10px;
+  border: 3px solid #ff1178;
+  width: 80%;
+  max-width: 600px;
+}
+
+.task-content {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.task-text {
+  flex-grow: 1;
+  margin: 0 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.task-input {
+  flex-grow: 1;
+  margin: 0 10px;
+}
+
+.task-meta {
+  font-size: 12px;
+  color: #888;
+}
+
+.task-actions {
+  display: flex;
+  align-items: center;
+}
+
+.task-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0 5px;
+  margin-left: 5px;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+.task-input {
+  border: 3px solid #ff1178;
+  font-weight: bold;
+  color: white;
+  border-radius: 10px;
+}

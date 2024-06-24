@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { deleteTask, editTask, toggleTask } from '../redux/taskSlice';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEdit, faTrashAlt, faSave } from '@fortawesome/free-solid-svg-icons';
+import '../App.css';
 
 function TaskItem({ task }) {
   const [isEditing, setIsEditing] = useState(false);
@@ -12,10 +15,14 @@ function TaskItem({ task }) {
   };
 
   const handleEdit = () => {
-    if (isEditing && newText.trim()) {
+    setIsEditing(true);
+  };
+
+  const handleSave = () => {
+    if (newText.trim()) {
       dispatch(editTask({ id: task.id, text: newText }));
     }
-    setIsEditing(!isEditing);
+    setIsEditing(false);
   };
 
   const handleToggle = () => {
@@ -23,25 +30,43 @@ function TaskItem({ task }) {
   };
 
   return (
-    <li>
-      <input
-        type="checkbox"
-        checked={task.completed}
-        onChange={handleToggle}
-      />
-      {isEditing ? (
+    <li className="task-item">
+      <div className="task-content">
         <input
-          type="text"
-          value={newText}
-          onChange={(e) => setNewText(e.target.value)}
+          type="checkbox"
+          checked={task.completed}
+          onChange={handleToggle}
         />
-      ) : (
-        <span style={{ textDecoration: task.completed ? 'line-through' : 'none' }}>
-          {task.text}
-        </span>
-      )}
-      <button onClick={handleEdit}>{isEditing ? 'Save' : 'Edit'}</button>
-      <button onClick={handleDelete}>Delete</button>
+        {isEditing ? (
+          <input
+            type="text"
+            value={newText}
+            onChange={(e) => setNewText(e.target.value)}
+            className="task-input"
+          />
+        ) : (
+          <span className={`task-text ${task.completed ? 'completed' : ''}`}>
+            {task.text}
+          </span>
+        )}
+        <div className="task-meta">
+          {new Date(task.id).toLocaleTimeString()}, {new Date(task.id).toLocaleDateString()}
+        </div>
+      </div>
+      <div className="task-actions">
+        {isEditing ? (
+          <button onClick={handleSave} className="task-button">
+            <FontAwesomeIcon icon={faSave} />
+          </button>
+        ) : (
+          <button onClick={handleEdit} className="task-button">
+            <FontAwesomeIcon icon={faEdit} />
+          </button>
+        )}
+        <button onClick={handleDelete} className="task-button">
+          <FontAwesomeIcon icon={faTrashAlt} />
+        </button>
+      </div>
     </li>
   );
 }
